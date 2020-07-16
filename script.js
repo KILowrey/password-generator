@@ -19,18 +19,18 @@ alert("If you make a mistake, you can reset the page");
 alert("FIRST: Please pick a number between 8 and 128");
 
 // add validation check with an alert that loops you back to this question if you didn't follow the instructions
-prompt("How many characters do you want your password to be?");
+var pswdLength = prompt("How many characters do you want your password to be?");
 
 // instructions for character paramaters
 alert('NOW: select OK for Yes and Cancel for No');
 
-confirm('Do you need lowercase letters?');
+var needLower = confirm('Do you need lowercase letters?');
 
-confirm('Do you need uppercase letters?');
+var needUpper = confirm('Do you need uppercase letters?');
 
-confirm('Do you need numbers?');
+var needNumbers = confirm('Do you need numbers?');
 
-confirm('Do you need special characters?');
+var needSpecial = confirm('Do you need special characters?');
 
 // end of "alerts" for all paramaters
 
@@ -49,5 +49,10 @@ generateBtn.addEventListener("click", writePassword);
 
 // NOTES TO SELF TO HELP OUT LATER
 
-// document.write() can write in HTML document
+// document.write() can write in HTML document. that's probably what I want to tie to <textarea> to type out the password??
 
+// set it so that if they need lowercase, uppercase, etc. they get at least 2, given that that is the minimum requirement for most websites
+
+/*  if (needUpper === true) {
+  *code for drawing from uppercase array*
+} */
