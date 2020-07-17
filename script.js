@@ -21,14 +21,19 @@ let pswdLength = parseInt(prompt('How long do you want your Password to be?'));
 while(pswdLength < 8 || pswdLength > 128 || isNaN(pswdLength)) {
   pswdLength = prompt('Please pick an integar from 8 to 128');
 }
+console.log('Password Length is ' + pswdLength);
 
 // instructions for character paramaters
 alert('NOW: select OK for Yes and Cancel for No');
 // true/falses for all of the arrays
 let needLower = confirm('Do you need lowercase letters?');
+console.log('Use Lowercase?: ' + needLower);
 let needUpper = confirm('Do you need uppercase letters?');
+console.log('Use Uppercase?: ' + needUpper);
 let needNumbers = confirm('Do you need numbers?');
+console.log('Use Numbers?: ' + needNumbers);
 let needSpecial = confirm('Do you need special characters?');
+console.log('Use Special Characters?: ' + needSpecial);
 // end of prompts and confirms for all paramaters
 
 //Finally, generate the password
