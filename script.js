@@ -14,16 +14,13 @@ alert("Welcome to the Password Generater!");
 alert("Please follow the instructions to set the paramaters for the generater");
 
 // instructions for picking the length
-alert("FIRST: Please pick a number between 8 and 128");
-// Picking the length. add validation check with an alert that loops you back to this question if you didn't follow the instructions
-let pswdLength = prompt("How many characters do you want your password to be?") {
-  if(/*more than 7 less than 129*/) {
-    // set pswdLength to that number and move on
-  } else {
-    alert('That is not a valid length. Please pick any integer from 8 to 128.')
-    // redo this promt
-  }
-};
+alert("FIRST: Pick a number between 8 and 128");
+// Picking the length. Sets pswdLength to what the user Inputs
+let pswdLength = parseInt(prompt('How long do you want your Password to be?'));
+// UNLESS they pick something less than 8 of more than 128, in which case they are prompted to pick again
+while(pswdLength < 8 || pswdLength > 128 || isNaN(pswdLength)) {
+  pswdLength = prompt('Please pick an integar from 8 to 128');
+}
 
 // instructions for character paramaters
 alert('NOW: select OK for Yes and Cancel for No');
@@ -32,8 +29,7 @@ let needLower = confirm('Do you need lowercase letters?');
 let needUpper = confirm('Do you need uppercase letters?');
 let needNumbers = confirm('Do you need numbers?');
 let needSpecial = confirm('Do you need special characters?');
-
-// end of "alerts" for all paramaters
+// end of prompts and confirms for all paramaters
 
 //Finally, generate the password
 function generatePassword() {
@@ -64,3 +60,6 @@ generateBtn.addEventListener("click", writePassword);
 // there /is/ a way to scramble a string/array.
 // I think i will generate 2 of each, one of each as needed, and then scramble
 
+/* I think the way I will draw is, IF need___ true, draw 2...
+  and than I draw one of each for all true arrays in order until i reach the number I need
+  THEN i scramble them */
