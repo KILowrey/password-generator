@@ -36,10 +36,10 @@ var needSpecial = confirm('Do you need special characters?');
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  var password = generatePassword(); // puts password we generate into vaiable "password"
+  var passwordText = document.querySelector("#password"); // puts the element that has the id "#password" in "passwordText"
 
-  passwordText.value = password;
+  passwordText.value = password; // sets the value of the element to password
 
 }
 
@@ -48,8 +48,6 @@ generateBtn.addEventListener("click", writePassword);
 
 
 // NOTES TO SELF TO HELP OUT LATER
-
-// document.write() can write in HTML document. that's probably what I want to tie to <textarea> to type out the password??
 
 // set it so that if they need lowercase, uppercase, etc. they get at least 2, given that that is the minimum requirement for most websites
 
