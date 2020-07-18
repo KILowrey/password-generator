@@ -1,7 +1,17 @@
 # password-generator
 ## 03 JavaScript Assignment
 
-This is a Password generator coded using JavaScript
+This is a Password generator coded using JavaScript, with HTML and CSS already provided by the class.
+
+This webpage askes for a length the password, then askes what kinds of characters the user needs and doesn't need.
+
+A feature I'm happy with in this project, is that whatever password is generated will always have a minimum of 2 of each character type (beacuse most websites require that) and all the rest of the characters, should more be needed, are random.
+
+While there was planty of looking other people's code, the end result is undeniabliy my own. Snippets were copied, but the overall format is original.
+
+[kilowrey.github.io/password-generator](https://kilowrey.github.io/password-generator/)
+
+![screenshot of the live page](./webpagepic.PNG "Example image of website")
 
 ## Installation
 
