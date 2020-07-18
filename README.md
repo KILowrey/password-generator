@@ -21,7 +21,7 @@ There should be no installation required for this project
 
 Follow the instuctions on the Alert, Prompt, and Confirm boxes that pop up on your screen when you open the window. Then, click "generate password" to see your new, secure password!
 
-You can look at the Console on your browser to jet a better look at what's going on inside ;)
+You can look at the Console on your browser to get a better look at what's going on inside ;)
 
 ## Credits
 
