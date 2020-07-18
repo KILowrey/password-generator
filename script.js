@@ -36,10 +36,68 @@ let needSpecial = confirm('Do you need special characters?');
 console.log('Use Special Characters?: ' + needSpecial);
 // end of prompts and confirms for all paramaters
 
-//Finally, generate the password
+// function for the array to pick all of the additional characters out of after the first 8 (if there are more than 8)
+function generateMoreCharacters() {
+  // create the empty array of addCharacters
+  let addCharacters = [].split('');
+  // if user needs lowercase, add lowercase letters to the more character array
+  if (needLower) {
+    addCharacters = addCharacters.concat(lowercase);
+  }
+  // if user needs uppercase, add uppercase letter to the array
+  if (needUpper) {
+    addCharacters = addCharacters.concat(uppercase);
+  }
+  // if user needs numbers, add numbers to the array
+  if (needNumbers) {
+    addCharacters = addCharacters.concat(numbers);
+  }
+  // if user needs special characters, add specail characters to the array
+  if (needSpecial) {
+    addCharacters = addCharacters.concat(special);
+  }
+  // do I need to do a final thing to make sure that addCharacters is complete and valid?
+} //end of function generateMoreCharacters
+
+//Finally, we generate the password
 function generatePassword() {
-  /*insert code for generating password here*/
-}
+  // set the empty array of the characters in the password
+  let password = [];
+  // if we needLower, we add 2 random characters from the lowercase array to the password
+  if(needLower) {
+    for(let i = 0; i < 2; i++) {
+      password.push('randomCharacter');
+    }
+  }
+  // if we needUpper, we add 2 random characters from the uppercase array to the password
+  if(needUpper) {
+    for(let i = 0; i < 2; i++) {
+      password.push('randomCharacter');
+    }
+  }
+  // if we needNumbers, we add 2 random characters from the numbers array to the password
+  if(needNumbers) {
+    for(let i = 0; i < 2; i++) {
+      password.push('randomCharacter');
+    }
+  }
+  // if we needSpecial, we add 2 random characters from the special characters array to the password
+  if(needSpecial) {
+    for(let i = 0; i < 2; i++) {
+      password.push('randomCharacter');
+    }
+  }
+
+  // if the user set their choise of password length the more than 8, generateMoreCharacters array
+  if(pswdLength > 8) {
+    generateMoreCharacters(); // I'm not sure if this will work or not. I'm trying to call the function of generateMoreCharacters so that I can addCharacters
+  }
+
+  // for as long as password.length is less than the set pswdLength, we generateMoreCharacters (only once) and then we add a random character from the addCharacters array until password.length is = to pswdLength
+
+  // once password.length is equal to pswdLength, scramble the password. then you are done generating.
+
+} // end of function generatePassword
 
 // Write password to the #password input (writes our password on the page)
 function writePassword() {
@@ -48,23 +106,7 @@ function writePassword() {
 
   passwordText.value = password; // sets the value of the element to password
 
-}
+} // end of function writePassword
 
 // Add event listener to generate button (writes the password when we click the button)
 generateBtn.addEventListener("click", writePassword);
-
-
-// NOTES TO SELF TO HELP OUT LATER
-
-// set it so that if they need lowercase, uppercase, etc. they get at least 2, given that that is the minimum requirement for most websites
-
-/*  if (needUpper === true) {
-  *code for drawing from uppercase array*
-} */
-
-// there /is/ a way to scramble a string/array.
-// I think i will generate 2 of each, one of each as needed, and then scramble
-
-/* I think the way I will draw is, IF need___ true, draw 2...
-  and than I draw one of each for all true arrays in order until i reach the number I need
-  THEN i scramble them */
