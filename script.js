@@ -36,29 +36,6 @@ let needSpecial = confirm('Do you need special characters?');
 console.log('Use Special Characters?: ' + needSpecial);
 // end of prompts and confirms for all paramaters
 
-// function for the array to pick all of the additional characters out of after the first 8 (if there are more than 8)
-function generateMoreCharacters() {
-  // create the empty array of addCharacters
-  let addCharacters = [].split('');
-  // if user needs lowercase, add lowercase letters to the more character array
-  if (needLower) {
-    addCharacters = addCharacters.concat(lowercase);
-  }
-  // if user needs uppercase, add uppercase letter to the array
-  if (needUpper) {
-    addCharacters = addCharacters.concat(uppercase);
-  }
-  // if user needs numbers, add numbers to the array
-  if (needNumbers) {
-    addCharacters = addCharacters.concat(numbers);
-  }
-  // if user needs special characters, add specail characters to the array
-  if (needSpecial) {
-    addCharacters = addCharacters.concat(special);
-  }
-  // do I need to do a final thing to make sure that addCharacters is complete and valid?
-} //end of function generateMoreCharacters
-
 //Finally, we generate the password
 function generatePassword() {
   // set the empty array of the characters in the password
@@ -88,16 +65,61 @@ function generatePassword() {
     }
   }
 
-  // if the user set their choise of password length the more than 8, generateMoreCharacters array
+  // if the user set their choise of password length the more than 8, then we create an array of additonal characters to pull from.
   if(pswdLength > 8) {
-    generateMoreCharacters(); // I'm not sure if this will work or not. I'm trying to call the function of generateMoreCharacters so that I can addCharacters
-  }
+    // create the empty array of addCharacters
+    let addCharacters = [].split('');
+    // if user needs lowercase, add lowercase letters to the more character array
+    if (needLower) {
+      addCharacters = addCharacters.concat(lowercase);
+    }
+    // if user needs uppercase, add uppercase letter to the array
+    if (needUpper) {
+      addCharacters = addCharacters.concat(uppercase);
+    }
+    // if user needs numbers, add numbers to the array
+    if (needNumbers) {
+      addCharacters = addCharacters.concat(numbers);
+    }
+    // if user needs special characters, add specail characters to the array
+    if (needSpecial) {
+      addCharacters = addCharacters.concat(special);
+    }
 
-  // for as long as password.length is less than the set pswdLength, we generateMoreCharacters (only once) and then we add a random character from the addCharacters array until password.length is = to pswdLength
+    // while the length of the password array is less than the number entered by the user, we push a random character from addCharacters to the password
+    while(password.length < pswdLength) {
+      password.push('randomCharacter');
+    }
+  } // end of the additional characters code
 
-  // once password.length is equal to pswdLength, scramble the password. then you are done generating.
+  //log the password (pre-shuffle)
+  console.log('password pre-shuffle: ' + password);
+  // shuffle the password using the Knuth-shuffle
+  shuffle(password);
+  // log the password
+  console.log('password post-shuffle: ' + password);
 
 } // end of function generatePassword
+
+// the Fisher-Yates (aka Knuth) Shuffle
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
 
 // Write password to the #password input (writes our password on the page)
 function writePassword() {
