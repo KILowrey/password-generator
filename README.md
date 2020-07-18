@@ -21,6 +21,8 @@ Thanks to [Plover Brown](https://github.com/rebgrasshopper) for letting me look 
 
 Code for shuffleing the password is called the Knuth Shuffle, and can be found [here](https://github.com/Daplie/knuth-shuffle)
 
+Code Snippet for selecting a random character found [here](https://css-tricks.com/snippets/javascript/select-random-item-array/)
+
 ## License
 
 GNU General Public License 3.0

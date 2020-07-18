@@ -15,60 +15,71 @@ alert("Please follow the instructions to set the paramaters for the generater");
 
 // instructions for picking the length
 alert("FIRST: Pick a number between 8 and 128");
+
 // Picking the length. Sets pswdLength to what the user Inputs
 let pswdLength = parseInt(prompt('How long do you want your Password to be?'));
+
 // UNLESS they pick something less than 8 of more than 128, in which case they are prompted to pick again
 while(pswdLength < 8 || pswdLength > 128 || isNaN(pswdLength)) {
   pswdLength = prompt('Please pick an integar from 8 to 128');
 }
+
 console.log('Password Length is ' + pswdLength);
 
 // instructions for character paramaters
 alert('NOW: select OK for Yes and Cancel for No');
+
 // true/falses for all of the arrays
 let needLower = confirm('Do you need lowercase letters?');
 console.log('Use Lowercase?: ' + needLower);
+
 let needUpper = confirm('Do you need uppercase letters?');
 console.log('Use Uppercase?: ' + needUpper);
+
 let needNumbers = confirm('Do you need numbers?');
 console.log('Use Numbers?: ' + needNumbers);
+
 let needSpecial = confirm('Do you need special characters?');
 console.log('Use Special Characters?: ' + needSpecial);
 // end of prompts and confirms for all paramaters
 
 //Finally, we generate the password
 function generatePassword() {
+
   // set the empty array of the characters in the password
   let password = [];
+
   // if we needLower, we add 2 random characters from the lowercase array to the password
   if(needLower) {
     for(let i = 0; i < 2; i++) {
-      password.push('randomCharacter');
+      password.push(lowercase[Math.floor(Math.random()*lowercase.length)]);
     }
   }
   // if we needUpper, we add 2 random characters from the uppercase array to the password
   if(needUpper) {
     for(let i = 0; i < 2; i++) {
-      password.push('randomCharacter');
+      password.push(uppercase[Math.floor(Math.random()*uppercase.length)]);
     }
   }
   // if we needNumbers, we add 2 random characters from the numbers array to the password
   if(needNumbers) {
     for(let i = 0; i < 2; i++) {
-      password.push('randomCharacter');
+      password.push(numbers[Math.floor(Math.random()*numbers.length)]);
     }
   }
   // if we needSpecial, we add 2 random characters from the special characters array to the password
   if(needSpecial) {
     for(let i = 0; i < 2; i++) {
-      password.push('randomCharacter');
+      password.push(special[Math.floor(Math.random()*special.length)]);
     }
   }
 
   // if the user set their choise of password length the more than 8, then we create an array of additonal characters to pull from.
   if(pswdLength > 8) {
+
     // create the empty array of addCharacters
-    let addCharacters = [].split('');
+    let addCharacters = [];
+
     // if user needs lowercase, add lowercase letters to the more character array
     if (needLower) {
       addCharacters = addCharacters.concat(lowercase);
@@ -88,7 +99,7 @@ function generatePassword() {
 
     // while the length of the password array is less than the number entered by the user, we push a random character from addCharacters to the password
     while(password.length < pswdLength) {
-      password.push('randomCharacter');
+      password.push(addCharacters[Math.floor(Math.random()*addCharacters.length)]);
     }
   } // end of the additional characters code
 
