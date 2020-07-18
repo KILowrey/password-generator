@@ -75,13 +75,13 @@ function generatePassword() {
     }
   }
 
-  // if the user set their choise of password length the more than 8, then we create an array of additonal characters to pull from.
+  // if the user set their choice of password length the more than 8, then we create an array of additonal characters to pull from.
   if(pswdLength > 8) {
 
     // create the empty array of addCharacters
     let addCharacters = [];
 
-    // if user needs lowercase, add lowercase letters to the more character array
+    // if user needs lowercase, add lowercase letters to the array
     if (needLower) {
       addCharacters = addCharacters.concat(lowercase);
     }
@@ -111,7 +111,7 @@ function generatePassword() {
   // log the final password
   console.log('final password: ' + password)
 
-  // makes password be the value of the function
+  // make password be the value of the function
   return password;
 
 } // end of function generatePassword
