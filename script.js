@@ -103,12 +103,15 @@ function generatePassword() {
     }
   } // end of the additional characters code
 
-  //log the password (pre-shuffle)
-  console.log('password pre-shuffle: ' + password);
   // shuffle the password using the Knuth-shuffle
   shuffle(password);
-  // log the password
-  console.log('password post-shuffle: ' + password);
+  // turn the password into a string
+  password = password.join("");
+  // log the final password
+  console.log('final password: ' + password)
+
+  // makes password be the value of the function
+  return password;
 
 } // end of function generatePassword
 

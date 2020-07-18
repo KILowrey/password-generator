@@ -11,7 +11,7 @@ There should be no installation required for this project
 
 Follow the instuctions on the Alert, Prompt, and Confirm boxes that pop up on your screen when you open the window. Then, click "generate password" to see your new, secure password!
 
-You can look at the Console on your browser to jet a bettwer look at what's going on inside ;)
+You can look at the Console on your browser to jet a better look at what's going on inside ;)
 
 ## Credits
 
@@ -22,6 +22,8 @@ Thanks to [Plover Brown](https://github.com/rebgrasshopper) for letting me look 
 Code for shuffleing the password is called the Knuth Shuffle, and can be found [here](https://github.com/Daplie/knuth-shuffle)
 
 Code Snippet for selecting a random character found [here](https://css-tricks.com/snippets/javascript/select-random-item-array/)
+
+Thanks to Prof. Chris Stead and TA Steven Landgraf for providing guidence
 
 ## License
 
