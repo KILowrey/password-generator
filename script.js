@@ -12,6 +12,7 @@ const special = '!?#$%&()*-=,./:;<>@[]^{}~'.split(''); // 26 long. 0-25.
 // introduction to the generater
 alert("Welcome to the Password Generater!");
 alert("Please follow the instructions to set the paramaters for the generater");
+alert("If you want to reset your paramaters, you can reload the page");
 
 // instructions for picking the length
 alert("FIRST: Pick a number between 8 and 128");
