@@ -44,6 +44,11 @@ let needSpecial = confirm('Do you need special characters?');
 console.log('Use Special Characters?: ' + needSpecial);
 // end of prompts and confirms for all paramaters
 
+// If user says no to all types of characters
+if(needLower === false && needUpper === false && needNumbers === false && needSpecial === false) {
+  alert("You can't have a password with no characters!");
+}
+
 //Finally, we generate the password
 function generatePassword() {
 
